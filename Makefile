@@ -13,5 +13,9 @@ fill_db:
 migrate:
 	docker-compose exec web python manage.py migrate
 
+init:
+	make migrate
+	make fill_db
+
 test:
 	docker-compose exec web python manage.py test
