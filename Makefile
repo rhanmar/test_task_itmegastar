@@ -1,9 +1,17 @@
+build:
+	docker-compose build
+
 up:
-	python manage.py runserver
+	docker-compose up
+
+down:
+	docker-compose down
 
 fill_db:
-	python manage.py fill_db
+	docker-compose exec web python manage.py fill_db
 
-up_fill:
-	python manage.py fill_db
-	python manage.py runserver
+migrate:
+	docker-compose exec web python manage.py migrate
+
+test:
+	docker-compose exec web python manage.py test
